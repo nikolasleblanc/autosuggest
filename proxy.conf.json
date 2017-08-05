@@ -1,0 +1,12 @@
+{
+  "/search": {
+    "target":  {
+      "host": "bbtest-175601.appspot.com",
+      "protocol": "https:",
+      "port": 443
+    },
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "info"
+  }
+}

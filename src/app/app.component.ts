@@ -18,14 +18,14 @@ import * as faker from 'faker';
 export class AppComponent {
   name = new FormControl();
   title = 'app';
-  results = Observable.of(['abc', '123']);
+  results = Observable.of({});
 
   constructor(private http: Http) {
     this.results = this.name.valueChanges.throttleTime(50).switchMap(e => this.getResults(e))
   }
 
   getResults = (str) => {
-    return this.http.get(`search/${str}`).map(res => res.json())
+    return this.http.get(`http://localhost:3000/search/${str}`).map(res => res.json())
       .catch(err => Observable.of([
         'abc',
         'def',

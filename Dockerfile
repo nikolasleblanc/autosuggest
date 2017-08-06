@@ -19,3 +19,5 @@ RUN npm install \
   && rm -rf ./*
 
 CMD ["nginx", "-g", "daemon off;"]
+
+CMD ["node", "proxy.js"]

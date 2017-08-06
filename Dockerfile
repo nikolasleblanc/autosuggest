@@ -15,8 +15,7 @@ RUN npm install \
   && rm -rf /usr/share/nginx/html/* \
   && mv ./dist/* /usr/share/nginx/html/ \
   && npm cache clean \
-  && apk del libstdc++ libgcc libuv http-parser ca-certificates \
-  && rm -rf ./*
+  && apk del libstdc++ libgcc libuv http-parser ca-certificates
 
 CMD ["nginx", "-g", "daemon off;"]
 

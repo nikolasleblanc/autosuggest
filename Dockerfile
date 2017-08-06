@@ -8,13 +8,9 @@ WORKDIR $APP_PATH
 
 COPY . .
 
-CMD [
-  "sed -i -e \"s/API_HOST/$API_SERVICE_SERVICE_HOST/g\" nginx/default.conf"
-]
-
-CMD [
-  "sed -i -e \"s/API_POST/$API_SERVICE_SERVICE_POST/g\" nginx/default.conf"
-]
+COPY update_nginx.sh /
+RUN chmod +x /update_nginx.sh
+ENTRYPOINT ["/update_nginx.sh"]
 
 COPY nginx/default.conf /etc/nginx/conf.d/
 

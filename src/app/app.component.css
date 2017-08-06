@@ -8,6 +8,7 @@
 label {
   align-self: center;
   margin-right: 1rem;
+  padding-bottom: 7px;
 }
 
 :host /deep/ .mat-input-wrapper {

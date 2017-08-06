@@ -8,10 +8,6 @@ WORKDIR $APP_PATH
 
 COPY . .
 
-COPY update_nginx.sh /
-RUN chmod +x /update_nginx.sh
-ENTRYPOINT ["/update_nginx.sh"]
-
 COPY nginx/default.conf /etc/nginx/conf.d/
 
 RUN npm install \

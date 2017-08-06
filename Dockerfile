@@ -8,6 +8,14 @@ WORKDIR $APP_PATH
 
 COPY . .
 
+CMD [
+  "sed -i -e \"s/API_HOST/$API_SERVICE_SERVICE_HOST/g\" nginx/default.conf"
+]
+
+CMD [
+  "sed -i -e \"s/API_POST/$API_SERVICE_SERVICE_POST/g\" nginx/default.conf"
+]
+
 COPY nginx/default.conf /etc/nginx/conf.d/
 
 RUN npm install \
@@ -15,8 +23,8 @@ RUN npm install \
   && rm -rf /usr/share/nginx/html/* \
   && mv ./dist/* /usr/share/nginx/html/ \
   && npm cache clean \
-  && apk del libstdc++ libgcc libuv http-parser ca-certificates
+  && apk del nodejs libstdc++ libgcc libuv http-parser ca-certificates \
+  && rm -rf ./*
+
 
 CMD ["nginx", "-g", "daemon off;"]
-
-CMD ["node", "proxy.js"]

@@ -26,5 +26,4 @@ RUN npm install \
   && apk del nodejs libstdc++ libgcc libuv http-parser ca-certificates \
   && rm -rf ./*
 
-
 CMD ["nginx", "-g", "daemon off;"]

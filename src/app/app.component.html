@@ -1,5 +1,10 @@
-<input #autosuggest type="text" [formControl]="name"/>
+<label>Search Products: </label>
+<md-input-container>
+   <input type="text" mdInput [formControl]="name" [mdAutocomplete]="auto">
+</md-input-container>
 
-<ul>
-  <li *ngFor="let result of results | async">{{ result }}</li>
-</ul>
+<md-autocomplete #auto="mdAutocomplete">
+  <md-option *ngFor="let result of results | async" [value]="result">
+    {{ result }}
+  </md-option>
+</md-autocomplete>

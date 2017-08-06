@@ -4,6 +4,9 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
+import { MdAutocompleteModule, MdInputModule } from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import 'hammerjs';
 
 @NgModule({
   declarations: [
@@ -12,7 +15,10 @@ import { HttpModule } from "@angular/http";
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    MdAutocompleteModule,
+    MdInputModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

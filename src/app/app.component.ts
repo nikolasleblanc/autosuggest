@@ -26,6 +26,10 @@ export class AppComponent {
 
   getResults = (str) => {
     return this.http.get(`search/${str}`).map(res => res.json())
-      .catch(err => []);
+      .catch(err => Observable.of([
+        'abc',
+        'def',
+        'geh'
+      ]));
   }
 }

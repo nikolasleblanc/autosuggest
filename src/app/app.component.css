@@ -1,0 +1,11 @@
+:host {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+}
+
+label {
+  align-self: center;
+  margin-right: 1rem;
+}

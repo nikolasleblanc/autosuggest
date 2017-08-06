@@ -4,6 +4,7 @@ import { Http } from '@angular/http';
 import { Observable } from "rxjs/Observable";
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/switchMap';
 import * as faker from 'faker';
 
@@ -18,7 +19,7 @@ export class AppComponent {
   results;
 
   constructor(private http: Http) {
-    this.results = this.name.valueChanges.switchMap(e => this.getResults(e))
+    this.results = this.name.valueChanges.filter(val => val !== '').switchMap(e => this.getResults(e))
   }
 
   getResults = (str) => {

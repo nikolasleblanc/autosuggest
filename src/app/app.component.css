@@ -9,3 +9,7 @@ label {
   align-self: center;
   margin-right: 1rem;
 }
+
+:host /deep/ .mat-input-wrapper {
+  width: 400px;
+}

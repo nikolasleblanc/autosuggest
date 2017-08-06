@@ -21,7 +21,7 @@ export class AppComponent {
   results = Observable.of(['abc', '123']);
 
   constructor(private http: Http) {
-    this.results = this.name.valueChanges.throttleTime(400).switchMap(e => this.getResults(e))
+    this.results = this.name.valueChanges.throttleTime(50).switchMap(e => this.getResults(e))
   }
 
   getResults = (str) => {

@@ -6,6 +6,7 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/switchMap';
 import * as faker from 'faker';
 
@@ -17,10 +18,10 @@ import * as faker from 'faker';
 export class AppComponent {
   name = new FormControl();
   title = 'app';
-  results;
+  results = Observable.of(['abc', '123']);
 
   constructor(private http: Http) {
-    this.results = this.name.valueChanges.switchMap(e => this.getResults(e))
+    this.results = this.name.valueChanges.debounceTime(400).switchMap(e => this.getResults(e))
   }
 
   getResults = (str) => {
